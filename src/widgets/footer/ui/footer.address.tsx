@@ -1,32 +1,47 @@
+import { cn } from '@/shared/utils/cn';
+import { type AddressField, ADDRESS } from '../data';
+
+type Props = {
+	field: AddressField;
+	isCompany?: boolean;
+};
+
 export function FooterAddress() {
 	return (
-		<address className="text-gray-400 text-xs md:text-sm flex flex-col md:flex-row md:flex-wrap lg:justify-end *:inline-flex lg:text-right *:mr-3 *:lg:mr-0 *:lg:ml-3 gap-1 lg:gap-0">
+		<address
+			className={cn(
+				'flex flex-col md:flex-row md:flex-wrap lg:justify-end *:inline-flex',
+				'*:mr-3 *:lg:mr-0 *:lg:ml-3 gap-1 lg:gap-0',
+				'text-xs md:text-sm text-gray-400 lg:text-right',
+			)}
+		>
 			<span>
-				<span>{'서울특별시 서초구 헌릉로 12'}</span>
-				<em className="ml-3">{'기아㈜'}</em>
+				<AddressItem field={ADDRESS.위치} />
+				<AddressItem field={ADDRESS.회사} isCompany />
 			</span>
-			<span>
-				<span>{'대표: '}</span>
-				<i>{'송호성, 최준영'}</i>
-			</span>
-			<span>
-				<span>{'사업자등록번호: '}</span>
-				<i>{'119-81-02316'}</i>
-			</span>
-			<span>
-				<span>{'통신판매번호: '}</span>
-				<i>{'2006-07935'}</i>
-			</span>
-			<span>
-				<span>{'고객센터: '}</span>
-				<i>{'1833-4964'}</i>
-			</span>
-			<span>
-				<span>{'제휴문의: '}</span>
-				<a href="mailto:kiabiz@kia.com" className="underline">
-					{'kiabiz@kia.com'}
-				</a>
-			</span>
+			<AddressItem field={ADDRESS.대표} />
+			<AddressItem field={ADDRESS.사업자등록번호} />
+			<AddressItem field={ADDRESS.통신판매번호} />
+			<AddressItem field={ADDRESS.고객센터} />
+			<AddressItem field={ADDRESS.제휴문의} />
 		</address>
+	);
+}
+
+function AddressItem({ field, isCompany }: Props) {
+	const value = field.href ? (
+		<a href={field.href} className="underline">
+			{field.value}
+		</a>
+	) : isCompany ? (
+		<em className="ml-3">{field.value}</em>
+	) : (
+		<i>{field.value}</i>
+	);
+	return (
+		<span>
+			{field.label && <span>{field.label}</span>}
+			{value}
+		</span>
 	);
 }

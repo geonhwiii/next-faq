@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { headerMenus } from '../data/menu';
+import { headerMenus } from '../data';
 
 export function HeaderNav() {
 	return (
