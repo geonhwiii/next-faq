@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
-:root {
-	--background: #ffffff;
-	--primary: #05141f;
-	--max-width: 1660px;
+@layer base {
+	:root {
+		--background: #ffffff;
+		--primary: #05141f;
+		--max-width: 1660px;
+	}
 }
 
-@theme inline {
+@theme {
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
-	--color-background: var(--background);
+
 	--color-primary: var(--primary);
+
+	--color-background: var(--background);
+	--color-footer-background: var(--primary);
+
+	--breakpoint-md: 46.5rem;
 }
 
 @layer base {
@@ -26,6 +33,11 @@
 	select,
 	textarea {
 		@apply text-primary;
+	}
+	address,
+	i,
+	em {
+		@apply not-italic;
 	}
 }
 
