@@ -1,6 +1,6 @@
 import { HomeTitle } from './ui';
 
-export function HomePage() {
+export function HomeScreen() {
 	return (
 		<div>
 			<HomeTitle />
