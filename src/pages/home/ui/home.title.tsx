@@ -4,7 +4,8 @@ export function HomeTitle() {
 	return (
 		<h1
 			className={cn(
-				'flex flex-col justify-center font-semibold text-[length:var(--h1-fsize)] h-[var(--h1-height)] leading-[var(--line-height-sm)]',
+				'flex flex-col justify-center h-[var(--h1-height)]',
+				'text-[length:var(--h1-fsize)] font-bold leading-[var(--line-height-sm)]',
 			)}
 		>
 			{'자주 묻는 질문'}
