@@ -325,6 +325,9 @@
 	* {
 		@apply box-border;
 	}
+	html {
+		@apply text-[length:var(--px-md)];
+	}
 	body {
 		@apply m-0 min-w-[360px] h-full;
 	}
@@ -339,5 +342,11 @@
 	i,
 	em {
 		@apply not-italic;
+	}
+}
+
+@layer utilities {
+	.heading-2 {
+		@apply m-[var(--heading-2-margin)] text-[length:var(--heading-2)] font-bold leading-[var(--line-height-sm)];
 	}
 }
