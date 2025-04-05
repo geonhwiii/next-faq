@@ -1,4 +1,4 @@
-import { HomeInquiry, HomeTabs, HomeTitle } from './ui';
+import { HomeInquiry, HomeProcessInfo, HomeTabs, HomeTitle } from './ui';
 
 export function HomeScreen() {
 	return (
@@ -6,6 +6,7 @@ export function HomeScreen() {
 			<HomeTitle />
 			<HomeTabs />
 			<HomeInquiry />
+			<HomeProcessInfo />
 		</div>
 	);
 }
