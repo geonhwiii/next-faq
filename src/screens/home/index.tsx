@@ -1,11 +1,11 @@
 import { AppInfo } from '@/features/app-info';
-import { HomeInquiry, HomeProcessInfo, HomeTabs, HomeTitle } from './ui';
+import { HomeInquiry, HomeProcessInfo, HomeContent, HomeTitle } from './ui';
 
 export function HomeScreen() {
 	return (
 		<div>
 			<HomeTitle />
-			<HomeTabs />
+			<HomeContent />
 			<HomeInquiry />
 			<HomeProcessInfo />
 			<AppInfo />
