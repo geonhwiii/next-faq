@@ -1,4 +1,4 @@
 export { HomeTitle } from './home.title';
-export { HomeTabs } from './home.tabs';
+export { HomeContent } from './home.content';
 export { HomeInquiry } from './home.inquiry';
 export { HomeProcessInfo } from './home.process-info';
