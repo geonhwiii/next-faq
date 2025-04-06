@@ -1,3 +1,4 @@
+import { cn } from '@/shared/utils/cn';
 import { createContext, useContext, useState } from 'react';
 
 type RadioGroupProps = {
@@ -24,7 +25,7 @@ export function RadioGroup({ defaultValue = '', children, className = '', onChan
 
 	return (
 		<RadioGroupContext.Provider value={{ selectedValue, setSelectedValue: handleValueChange }}>
-			<div className={className}>{children}</div>
+			<div className={cn('flex items-center gap-0.5', className)}>{children}</div>
 		</RadioGroupContext.Provider>
 	);
 }
