@@ -1,5 +1,5 @@
 import { Tabs } from '@/shared/ui/tabs';
-import { SearchForm } from '@/entities/search-form';
+import { FaqContent } from '@/features/faq-content';
 
 export function HomeContent() {
 	return (
@@ -11,22 +11,12 @@ export function HomeContent() {
 					{
 						label: '서비스 도입',
 						value: 'CONSULT',
-						content: (
-							<div>
-								<SearchForm />
-								HELLO WORLD
-							</div>
-						),
+						content: <FaqContent tab="CONSULT" />,
 					},
 					{
 						label: '서비스 이용',
 						value: 'USAGE',
-						content: (
-							<div>
-								<SearchForm />
-								HELLO WORLD 2
-							</div>
-						),
+						content: <FaqContent tab="USAGE" />,
 					},
 				]}
 			/>
