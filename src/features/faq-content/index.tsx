@@ -5,6 +5,7 @@ import { SearchField } from '@/entities/search-field';
 import { useForm } from 'react-hook-form';
 import type { FaqFormData } from './data/schema';
 import { CATEGORY_ID_OPTIONS } from './data/options';
+import { FaqList } from '@/entities/faq-list';
 
 type Props = {
 	tab: 'CONSULT' | 'USAGE';
@@ -28,6 +29,7 @@ export function FaqContent({ tab }: Props) {
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<SearchField control={control} />
 			<SearchFilter control={control} options={CATEGORY_ID_OPTIONS} />
+			<FaqList />
 		</form>
 	);
 }
