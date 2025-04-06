@@ -74,6 +74,9 @@
 	body {
 		font-family: var(--font-kia), Arial, Helvetica, sans-serif;
 	}
+	.heading-2 {
+		@apply m-[var(--heading-2-margin)] text-[length:var(--heading-2)] font-bold leading-[var(--line-height-sm)];
+	}
 }
 
 @media (max-width: 743px) {
@@ -342,11 +345,5 @@
 	i,
 	em {
 		@apply not-italic;
-	}
-}
-
-@layer utilities {
-	.heading-2 {
-		@apply m-[var(--heading-2-margin)] text-[length:var(--heading-2)] font-bold leading-[var(--line-height-sm)];
 	}
 }

@@ -12,18 +12,20 @@ type Props = {
 
 export function SearchFilter({ control, options }: Props) {
 	return (
-		<Controller
-			name="faqCategoryID"
-			control={control}
-			render={({ field: { onChange, value } }) => (
-				<RadioGroup defaultValue={value} onChange={onChange}>
-					{options.map((option) => (
-						<RadioGroupItem key={option.value} value={option.value}>
-							{option.label}
-						</RadioGroupItem>
-					))}
-				</RadioGroup>
-			)}
-		/>
+		<div className="mb-[var(--px-md)]">
+			<Controller
+				name="faqCategoryID"
+				control={control}
+				render={({ field: { onChange, value } }) => (
+					<RadioGroup defaultValue={value} onChange={onChange}>
+						{options.map((option) => (
+							<RadioGroupItem key={option.value} value={option.value}>
+								{option.label}
+							</RadioGroupItem>
+						))}
+					</RadioGroup>
+				)}
+			/>
+		</div>
 	);
 }
