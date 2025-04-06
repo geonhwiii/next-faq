@@ -25,7 +25,7 @@ export function RadioGroup({ defaultValue = '', children, className = '', onChan
 
 	return (
 		<RadioGroupContext.Provider value={{ selectedValue, setSelectedValue: handleValueChange }}>
-			<div className={cn('flex items-center gap-0.5', className)}>{children}</div>
+			<div className={cn('flex flex-wrap items-center gap-0.5', className)}>{children}</div>
 		</RadioGroupContext.Provider>
 	);
 }

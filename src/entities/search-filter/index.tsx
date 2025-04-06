@@ -7,7 +7,7 @@ import type { FaqFormData } from '@/features/faq-content/data/schema';
 
 type Props = {
 	control: Control<FaqFormData>;
-	options: { label: string; value: string }[];
+	options: { name: string; categoryID: string }[];
 };
 
 export function SearchFilter({ control, options }: Props) {
@@ -18,9 +18,10 @@ export function SearchFilter({ control, options }: Props) {
 				control={control}
 				render={({ field: { onChange, value } }) => (
 					<RadioGroup defaultValue={value} onChange={onChange}>
+						<RadioGroupItem value="">{'전체'}</RadioGroupItem>
 						{options.map((option) => (
-							<RadioGroupItem key={option.value} value={option.value}>
-								{option.label}
+							<RadioGroupItem key={option.categoryID} value={option.categoryID}>
+								{option.name}
 							</RadioGroupItem>
 						))}
 					</RadioGroup>
