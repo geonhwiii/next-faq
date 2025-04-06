@@ -20,7 +20,7 @@ export function ProcessInfoItem({ name, description, icon, stepArrow }: Props) {
 					<Image src={icon} alt={'icon'} fill />
 				</div>
 				<div className="flex flex-col gap-1 lg:gap-2">
-					<strong className="text-lg font-bold text-primary">{name}</strong>
+					<strong className="text-base font-bold text-primary">{name}</strong>
 					<em className="text-gray-700 text-base">{description}</em>
 				</div>
 			</li>
