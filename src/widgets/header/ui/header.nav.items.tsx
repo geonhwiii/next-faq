@@ -2,7 +2,11 @@ import Link from 'next/link';
 import { headerMenus } from '../data';
 import { cn } from '@/shared/utils/cn';
 
-export function HeaderNavItems() {
+interface HeaderNavItemsProps {
+	onClose?: () => void;
+}
+
+export function HeaderNavItems({ onClose }: HeaderNavItemsProps) {
 	return (
 		<ul className={cn('lg:flex lg:items-center lg:justify-end lg:gap-4 lg:mt-0', 'mt-20')}>
 			{headerMenus.map(({ label, href }) => (
@@ -13,6 +17,7 @@ export function HeaderNavItems() {
 							'block lg:px-1 font-semibold lg:text-lg lg:leading-[var(--header-height)]',
 							'text-[24px] leading-[56px] text-[#000] mb-[8px] text-center',
 						)}
+						onClick={onClose}
 					>
 						{label}
 					</Link>

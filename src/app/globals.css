@@ -78,12 +78,11 @@
 		@apply m-[var(--heading-2-margin)] text-[length:var(--heading-2)] font-bold leading-[var(--line-height-sm)];
 	}
 	.nav-toggle {
-		@apply text-[0px] inline-block border-[10px] border-transparent relative bg-no-repeat;
+		@apply text-[0px] inline-block border-[10px] border-transparent relative bg-no-repeat cursor-pointer;
 		width: 40px;
 		height: 40px;
 		background-image: linear-gradient(transparent 9px, #000 0, #000 11px, transparent 0);
 		background-position: 0;
-		transition: background-position .4s cubic-bezier(1, 0, 0.2, 1);
 		transition: background-position .4s var(--cubic-bezier-primary);
 	}
 	.nav-toggle::before,
