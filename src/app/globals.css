@@ -77,6 +77,40 @@
 	.heading-2 {
 		@apply m-[var(--heading-2-margin)] text-[length:var(--heading-2)] font-bold leading-[var(--line-height-sm)];
 	}
+	.nav-toggle {
+		@apply text-[0px] inline-block border-[10px] border-transparent relative bg-no-repeat cursor-pointer;
+		width: 40px;
+		height: 40px;
+		background-image: linear-gradient(transparent 9px, #000 0, #000 11px, transparent 0);
+		background-position: 0;
+		transition: background-position .4s var(--cubic-bezier-primary);
+	}
+	.nav-toggle::before,
+	.nav-toggle::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: #000;
+		transform-origin: 50%;
+		transition: transform 0.6s var(--cubic-bezier-primary);
+	}
+	.nav-toggle::before {
+		top: 3px;
+	}
+	.nav-toggle::after {
+		bottom: 3px;
+	}
+	.nav-opened .nav-toggle {
+		background-position: 30px 0;
+	}
+	.nav-opened .nav-toggle:before {
+		transform: translateY(6px) rotate(-45deg) scaleX(1.2);
+	}
+	.nav-opened .nav-toggle:after {
+		transform: translateY(-6px) rotate(45deg) scaleX(1.2);
+	}
 }
 
 @media (max-width: 743px) {
