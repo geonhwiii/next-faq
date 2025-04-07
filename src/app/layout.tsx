@@ -6,6 +6,7 @@ import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
 import { Main } from '@/widgets/main';
 import localFont from 'next/font/local';
+import Providers from './providers';
 
 const fonts = localFont({
 	src: [
@@ -37,9 +38,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={cn(fonts.className, 'antialiased')}>
-				<Header />
-				<Main>{children}</Main>
-				<Footer />
+				<Providers>
+					<Header />
+					<Main>{children}</Main>
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	);
