@@ -16,7 +16,7 @@ type Props = {
 
 export function FaqContent({ tab }: Props) {
 	const { data: options } = useQuery(faqCategoryQueryOptions({ tab }));
-	const { handleSubmit, control } = useForm<FaqFormData>({
+	const { handleSubmit, watch, control } = useForm<FaqFormData>({
 		defaultValues: {
 			question: '',
 			faqCategoryID: '',
@@ -31,7 +31,7 @@ export function FaqContent({ tab }: Props) {
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<SearchField control={control} />
 			<SearchFilter control={control} options={options ?? []} />
-			<FaqList tab={tab} />
+			<FaqList tab={tab} faqCategoryID={watch('faqCategoryID')} />
 		</form>
 	);
 }

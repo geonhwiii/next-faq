@@ -1,15 +1,24 @@
 import type { NextRequest } from 'next/server';
 import type { FaqResponse, FaqItem, FaqCategoryTab } from '@/types/faq';
 import MOCK_FAQ_DATA from '@/mocks/data/faq.json';
+import MOCK_CATEGORY_DATA from '@/mocks/data/category.json';
 
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
 
 	const limit = Number(searchParams.get('limit')) || 10;
 	const offset = Number(searchParams.get('offset')) || 0;
+	const faqCategoryID = searchParams.get('faqCategoryID');
 	const tab = (searchParams.get('tab') || 'CONSULT') as FaqCategoryTab;
 
-	const items = MOCK_FAQ_DATA[tab] || [];
+	let items = MOCK_FAQ_DATA[tab] || [];
+	if (faqCategoryID) {
+		const subCategoryName = MOCK_CATEGORY_DATA.data.find((category) => category.categoryID === faqCategoryID)?.name;
+		if (subCategoryName?.length) {
+			items = items.filter((item) => item.subCategoryName === subCategoryName);
+		}
+	}
+
 	const slicedItems = items.slice(offset, offset + limit);
 	const totalRecord = items.length;
 

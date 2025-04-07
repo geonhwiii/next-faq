@@ -1,1 +1,1 @@
-import { FaqListItem } from './faq-list.item';
+export { FaqListItem } from './faq-list.item';

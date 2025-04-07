@@ -14,6 +14,7 @@ export type FaqCategoryResponse = {
 // 2. FAQ
 export type FaqSearchParams = {
 	tab: FaqCategoryTab;
+	faqCategoryID?: string;
 	limit: number;
 	offset: number;
 };
