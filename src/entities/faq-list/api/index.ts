@@ -1,0 +1,1 @@
+export { faqListQueryOptions } from './query';

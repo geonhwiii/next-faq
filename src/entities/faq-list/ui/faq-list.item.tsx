@@ -4,7 +4,7 @@ type Props = {
 	value: string;
 	category: string;
 	title: string;
-	content: React.ReactNode;
+	content: string;
 };
 
 export function FaqListItem({ value, category, title, content }: Props) {
@@ -19,9 +19,10 @@ export function FaqListItem({ value, category, title, content }: Props) {
 				</div>
 			</AccordionTrigger>
 			<AccordionContent value={value}>
-				<div className="text-base leading-[var(--line-height-lg)] p-[var(--faq-list-q-padding)] border-t border-t-gray-100">
-					{content}
-				</div>
+				<div
+					className="text-base leading-[var(--line-height-lg)] p-[var(--faq-list-q-padding)] border-t border-t-gray-100"
+					dangerouslySetInnerHTML={{ __html: content }}
+				/>
 			</AccordionContent>
 		</AccordionItem>
 	);

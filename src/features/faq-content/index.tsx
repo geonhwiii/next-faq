@@ -5,8 +5,8 @@ import { SearchField } from '@/entities/search-field';
 import { useForm } from 'react-hook-form';
 import type { FaqFormData } from './data/schema';
 import { FaqList } from '@/entities/faq-list';
-import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
-import { faqListQueryOptions } from './api/query';
+import { useQuery } from '@tanstack/react-query';
+import { faqCategoryQueryOptions } from './api/query';
 
 type Props = {
 	tab: 'CONSULT' | 'USAGE';
@@ -15,7 +15,7 @@ type Props = {
 // TODO : tab이 변경될 때 subscription으로 form reset하기
 
 export function FaqContent({ tab }: Props) {
-	const { data: options } = useQuery(faqListQueryOptions({ tab }));
+	const { data: options } = useQuery(faqCategoryQueryOptions({ tab }));
 	const { handleSubmit, control } = useForm<FaqFormData>({
 		defaultValues: {
 			question: '',
@@ -31,7 +31,7 @@ export function FaqContent({ tab }: Props) {
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<SearchField control={control} />
 			<SearchFilter control={control} options={options ?? []} />
-			<FaqList />
+			<FaqList tab={tab} />
 		</form>
 	);
 }
