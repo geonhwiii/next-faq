@@ -1,24 +1,14 @@
-import { faqCategoryMockData } from '@/mocks/data/faq-cateogry';
 import type { NextRequest } from 'next/server';
+import MOCK_FAQ_CATEGORY_DATA from '@/mocks/data/faq-category.json';
+import type { FaqCategoryTab } from '@/types/faq';
 
-export type FaqCategoryTab = 'CONSULT' | 'USAGE';
-
-export type FaqCategoryParams = {
-	tab: FaqCategoryTab;
-};
-
-export type FaqCategoryResponse = {
-	data: {
-		categoryID: string;
-		name: string;
-	}[];
-};
-
-export function GET(request: NextRequest) {
+export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
-	const tab = searchParams.get('tab');
+	const tab = (searchParams.get('tab') || 'CONSULT') as FaqCategoryTab;
+
+	const data = MOCK_FAQ_CATEGORY_DATA[tab] || [];
 
 	return Response.json({
-		data: tab === 'CONSULT' ? faqCategoryMockData.CONSULT : faqCategoryMockData.USAGE,
+		data,
 	});
 }
