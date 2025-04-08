@@ -5,9 +5,9 @@ import TermsStartAdminAdminPrivacyData from '@/mocks/data/terms-startadmin_admin
 
 export async function GET(request: NextRequest) {
 	const searchParams = request.nextUrl.searchParams;
-	const termsClassID = searchParams.get('termsClassID') as TermsClassId;
+	const termsClassId = searchParams.get('termsClassId') as TermsClassId;
 
-	const data = termsClassID === 'JOIN_SERVICE_USE' ? TermsJoinServiceUseData : TermsStartAdminAdminPrivacyData;
+	const data = termsClassId === 'JOIN_SERVICE_USE' ? TermsJoinServiceUseData : TermsStartAdminAdminPrivacyData;
 
 	return Response.json(data);
 }
