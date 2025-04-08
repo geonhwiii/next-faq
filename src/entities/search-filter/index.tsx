@@ -17,7 +17,7 @@ export function SearchFilter({ control, options }: Props) {
 				name="faqCategoryID"
 				control={control}
 				render={({ field: { onChange, value } }) => (
-					<RadioGroup defaultValue={value} onChange={onChange}>
+					<RadioGroup value={value} onValueChange={onChange}>
 						<RadioGroupItem value="">{'전체'}</RadioGroupItem>
 						{options.map((option) => (
 							<RadioGroupItem key={option.categoryID} value={option.categoryID}>
