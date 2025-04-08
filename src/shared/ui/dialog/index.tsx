@@ -3,14 +3,13 @@
 import { useEffect, useRef } from 'react';
 
 interface DialogProps {
-	isOpen: boolean;
+	open?: boolean;
 	title: string;
 	content: React.ReactNode;
-
 	onClose: () => void;
 }
 
-export function Dialog({ isOpen, onClose, title, content }: DialogProps) {
+export function Dialog({ open, onClose, title, content }: DialogProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	const onKeyDownEscape = (e: React.KeyboardEvent) => {
@@ -19,12 +18,12 @@ export function Dialog({ isOpen, onClose, title, content }: DialogProps) {
 
 	useEffect(() => {
 		const dialog = dialogRef.current!;
-		if (isOpen) {
+		if (open) {
 			dialog.showModal();
 			return;
 		}
 		dialog.close();
-	}, [isOpen]);
+	}, [open]);
 
 	return (
 		<dialog ref={dialogRef} className="backdrop:bg-black/40 p-0 m-auto" onKeyDown={onKeyDownEscape}>
