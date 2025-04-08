@@ -12,7 +12,8 @@ export function FaqList({ tab, faqCategoryID, question }: Pick<FaqSearchParams, 
 				<FaqListItem
 					key={item.id}
 					value={String(item.id)}
-					category={item.subCategoryName}
+					category={item.categoryName}
+					subCategoryName={item.subCategoryName}
 					title={item.question}
 					content={item.answer}
 				/>
