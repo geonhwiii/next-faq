@@ -3,9 +3,11 @@ import { createContext, useContext, useState } from 'react';
 
 type RadioGroupProps = {
 	className?: string;
-	defaultValue: string;
+	defaultValue?: string;
+	value?: string;
 	children: React.ReactNode;
 	onChange?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 };
 
 type RadioGroupContextValue = {
@@ -15,16 +17,27 @@ type RadioGroupContextValue = {
 
 const RadioGroupContext = createContext<RadioGroupContextValue | undefined>(undefined);
 
-export function RadioGroup({ defaultValue = '', children, className = '', onChange }: RadioGroupProps) {
+export function RadioGroup({
+	defaultValue = '',
+	value,
+	children,
+	className = '',
+	onChange,
+	onValueChange,
+}: RadioGroupProps) {
 	const [selectedValue, setSelectedValue] = useState<string>(defaultValue);
+	const currentValue = value ?? selectedValue;
 
-	const handleValueChange = (value: string) => {
-		setSelectedValue(value);
-		onChange?.(value);
+	const handleValueChange = (newValue: string) => {
+		if (!value) {
+			setSelectedValue(newValue);
+		}
+		onChange?.(newValue);
+		onValueChange?.(newValue);
 	};
 
 	return (
-		<RadioGroupContext.Provider value={{ selectedValue, setSelectedValue: handleValueChange }}>
+		<RadioGroupContext.Provider value={{ selectedValue: currentValue, setSelectedValue: handleValueChange }}>
 			<div className={cn('flex flex-wrap items-center gap-0.5', className)}>{children}</div>
 		</RadioGroupContext.Provider>
 	);
