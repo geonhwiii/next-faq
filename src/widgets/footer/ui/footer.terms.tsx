@@ -5,6 +5,7 @@ import { termsQueryOptions } from '../api';
 import type { TermsClassId, TermsItem } from '@/types/terms';
 import { useCallback, useState } from 'react';
 import { Dialog } from '@/shared/ui/dialog';
+import { Select } from '@/shared/ui/select';
 
 export function FooterTerms() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +29,21 @@ export function FooterTerms() {
 				onClose={() => setIsOpen(false)}
 				title="이용 약관"
 				content={
-					<div className="**:!text-[12px] **:lg:!text-[14px] **:leading-[var(--line-height-sm)] **:break-all">
-						<p dangerouslySetInnerHTML={{ __html: selectedTerms[0]?.contents }} />
-					</div>
+					<>
+						<Select
+							className="mb-3"
+							value="1"
+							onChange={() => {}}
+							options={[
+								{ value: '1', label: '옵션 1' },
+								{ value: '2', label: '옵션 2' },
+								{ value: '3', label: '옵션 3' },
+							]}
+						/>
+						<div className="**:!text-[12px] **:lg:!text-[14px] **:leading-[var(--line-height-sm)] **:break-all">
+							<p dangerouslySetInnerHTML={{ __html: selectedTerms[0]?.contents }} />
+						</div>
+					</>
 				}
 			/>
 		</div>
