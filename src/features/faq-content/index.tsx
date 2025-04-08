@@ -8,9 +8,10 @@ import { FaqList } from '@/entities/faq-list';
 import { useQuery } from '@tanstack/react-query';
 import { faqCategoryQueryOptions } from './api/query';
 import { useState } from 'react';
+import type { FaqCategoryTab } from '@/types/faq';
 
 type Props = {
-	tab: 'CONSULT' | 'USAGE';
+	tab: FaqCategoryTab;
 };
 
 // TODO : tab이 변경될 때 subscription으로 form reset하기

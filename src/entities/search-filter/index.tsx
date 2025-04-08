@@ -2,8 +2,8 @@
 
 import { type Control, Controller } from 'react-hook-form';
 import { RadioGroup, RadioGroupItem } from '@/shared/ui/radio-group';
-
 import type { FaqFormData } from '@/features/faq-content/data/schema';
+import type { FaqCategoryTab } from '@/types/faq';
 
 type Props = {
 	control: Control<FaqFormData>;

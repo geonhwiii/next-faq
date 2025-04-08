@@ -14,9 +14,11 @@ export async function GET(request: NextRequest) {
 
 	let items = MOCK_FAQ_DATA[tab] || [];
 	if (faqCategoryID) {
-		const subCategoryName = MOCK_CATEGORY_DATA.data.find((category) => category.categoryID === faqCategoryID)?.name;
-		if (subCategoryName?.length) {
-			items = items.filter((item) => item.subCategoryName === subCategoryName);
+		const targetName = MOCK_CATEGORY_DATA.data.find((category) => category.categoryID === faqCategoryID)?.name;
+		if (targetName?.length) {
+			items = items.filter((item) =>
+				tab === 'CONSULT' ? item.subCategoryName === targetName : item.categoryName === targetName,
+			);
 		}
 	}
 
