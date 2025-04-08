@@ -5,12 +5,12 @@ import { useEffect, useRef } from 'react';
 interface DialogProps {
 	isOpen: boolean;
 	title: string;
-	children: React.ReactNode;
+	content: React.ReactNode;
 
 	onClose: () => void;
 }
 
-export function Dialog({ isOpen, onClose, title, children }: DialogProps) {
+export function Dialog({ isOpen, onClose, title, content }: DialogProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	const onKeyDownEscape = (e: React.KeyboardEvent) => {
@@ -37,7 +37,7 @@ export function Dialog({ isOpen, onClose, title, children }: DialogProps) {
 						{'닫기'}
 					</button>
 				</div>
-				<div className="flex flex-1 flex-col overflow-hidden pt-3 pb-5">{children}</div>
+				<div className="flex flex-1 flex-col overflow-hidden pt-3 pb-5">{content}</div>
 			</div>
 		</dialog>
 	);

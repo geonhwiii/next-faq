@@ -23,11 +23,16 @@ export function FooterTerms() {
 			<TermsButton termsClassId="JOIN_SERVICE_USE" onClickTerms={openTermsDialog}>
 				<span>{'이용 약관'}</span>
 			</TermsButton>
-			<Dialog isOpen={isOpen} onClose={() => setIsOpen(false)} title="이용 약관">
-				<div className="**:!text-[12px] **:lg:!text-[14px] **:leading-[var(--line-height-sm)] **:break-all">
-					<p dangerouslySetInnerHTML={{ __html: selectedTerms[0]?.contents }} />
-				</div>
-			</Dialog>
+			<Dialog
+				isOpen={isOpen}
+				onClose={() => setIsOpen(false)}
+				title="이용 약관"
+				content={
+					<div className="**:!text-[12px] **:lg:!text-[14px] **:leading-[var(--line-height-sm)] **:break-all">
+						<p dangerouslySetInnerHTML={{ __html: selectedTerms[0]?.contents }} />
+					</div>
+				}
+			/>
 		</div>
 	);
 }
