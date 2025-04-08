@@ -1,5 +1,6 @@
 import { cn } from '@/shared/utils/cn';
 import { FooterAddress, FooterCopyright, FooterTerms } from './ui';
+import { Suspense } from 'react';
 
 export function Footer() {
 	return (
@@ -12,7 +13,9 @@ export function Footer() {
 			>
 				<FooterCopyright />
 				<div className="md:space-y-2.5 w-full">
-					<FooterTerms />
+					<Suspense>
+						<FooterTerms />
+					</Suspense>
 					<FooterAddress />
 				</div>
 			</div>

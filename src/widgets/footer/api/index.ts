@@ -1,0 +1,1 @@
+export { termsQueryOptions } from './query';
