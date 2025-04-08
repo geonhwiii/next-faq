@@ -1,1 +1,1 @@
-export { faqListQueryOptions } from './query';
+export { faqListInfiniteQueryOptions } from './query';

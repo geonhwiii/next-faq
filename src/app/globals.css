@@ -111,6 +111,27 @@
 	.nav-opened .nav-toggle:after {
 		transform: translateY(-6px) rotate(45deg) scaleX(1.2);
 	}
+	.list-more {
+		height: calc(var(--list-more-size) - 4px);
+		margin-right: 4px;
+		margin-top: -2px;
+		position: relative;
+		transition: transform .4s cubic-bezier(1, 0, 0.2, 1);
+		width: calc(var(--list-more-size) - 4px);
+	}
+	.list-more::before,
+	.list-more::after {
+		background-color: var(--midnight-900);
+		content: "";
+		height: 2px;
+		left: 0;
+		position: absolute;
+		top: calc(50% - 1px);
+		width: 100%;
+	}
+	.list-more::after {
+		transform: rotate(90deg);
+	}
 }
 
 @media (max-width: 743px) {

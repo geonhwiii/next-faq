@@ -15,8 +15,6 @@ type Props = {
 	tab: FaqCategoryTab;
 };
 
-// TODO : tab이 변경될 때 subscription으로 form reset하기
-
 export function FaqContent({ tab }: Props) {
 	const { handleSubmit, watch, control, setValue } = useForm<FaqFormData>({
 		defaultValues: {
