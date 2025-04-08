@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { faqListQueryOptions } from './api';
 import type { FaqSearchParams } from '@/types/faq';
 
-export function FaqList({ tab, faqCategoryID }: Pick<FaqSearchParams, 'tab' | 'faqCategoryID'>) {
-	const { data } = useQuery(faqListQueryOptions({ tab, limit: 10, offset: 0, faqCategoryID }));
+export function FaqList({ tab, faqCategoryID, question }: Pick<FaqSearchParams, 'tab' | 'faqCategoryID' | 'question'>) {
+	const { data } = useQuery(faqListQueryOptions({ tab, limit: 10, offset: 0, faqCategoryID, question }));
 	return (
 		<Accordion>
 			{data?.items.map((item) => (

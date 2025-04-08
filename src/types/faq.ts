@@ -17,6 +17,7 @@ export type FaqSearchParams = {
 	faqCategoryID?: string;
 	limit: number;
 	offset: number;
+	question?: string;
 };
 export type FaqItem = {
 	id: number;

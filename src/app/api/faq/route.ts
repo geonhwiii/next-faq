@@ -9,6 +9,7 @@ export async function GET(request: NextRequest) {
 	const limit = Number(searchParams.get('limit')) || 10;
 	const offset = Number(searchParams.get('offset')) || 0;
 	const faqCategoryID = searchParams.get('faqCategoryID');
+	const question = searchParams.get('question') || '';
 	const tab = (searchParams.get('tab') || 'CONSULT') as FaqCategoryTab;
 
 	let items = MOCK_FAQ_DATA[tab] || [];
@@ -17,6 +18,10 @@ export async function GET(request: NextRequest) {
 		if (subCategoryName?.length) {
 			items = items.filter((item) => item.subCategoryName === subCategoryName);
 		}
+	}
+
+	if (question) {
+		items = items.filter((item) => item.question.includes(question));
 	}
 
 	const slicedItems = items.slice(offset, offset + limit);
