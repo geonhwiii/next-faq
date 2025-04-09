@@ -1,5 +1,6 @@
 import { cn } from '@/shared/utils/cn';
 import { FooterAddress, FooterCopyright, FooterTerms } from './ui';
+import { Suspense } from 'react';
 
 export function Footer() {
 	return (

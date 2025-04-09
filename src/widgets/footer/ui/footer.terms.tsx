@@ -1,14 +1,20 @@
-import Link from 'next/link';
+'use client';
+
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+import { FooterTermsPrivacy } from './footer.terms.privacy';
+
+const FooterTermsService = dynamic(() => import('./footer.terms.service').then((mod) => mod.FooterTermsService), {
+	ssr: false,
+});
 
 export function FooterTerms() {
 	return (
 		<div className="h-12 md:h-fit flex items-center lg:justify-end gap-6 *:text-white *:hover:underline">
-			<Link href={'#'}>
-				<b>{'개인정보 처리방침'}</b>
-			</Link>
-			<Link href={'#'}>
-				<span>{'이용 약관'}</span>
-			</Link>
+			<FooterTermsPrivacy />
+			<Suspense>
+				<FooterTermsService />
+			</Suspense>
 		</div>
 	);
 }
