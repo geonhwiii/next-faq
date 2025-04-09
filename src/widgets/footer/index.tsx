@@ -13,9 +13,7 @@ export function Footer() {
 			>
 				<FooterCopyright />
 				<div className="md:space-y-2.5 w-full">
-					<Suspense>
-						<FooterTerms />
-					</Suspense>
+					<FooterTerms />
 					<FooterAddress />
 				</div>
 			</div>
